@@ -1,0 +1,20 @@
+<template name="todosItem">
+  <div class="list-item {{checkedClass}} {{editingClass}}">
+    {{#if currentUser}}
+      {{#if is_admin emailLocalPart}}
+        <label class="checkbox">
+          <input type="checkbox" checked="{{checked}}" name="checked">
+          <span class="checkbox-custom"></span>
+        </label>
+      {{/if}}
+    {{/if}}
+    
+    <span style="margin: 15px;">{{text}}</span>
+    
+    {{#if currentUser}}
+      {{#if is_admin emailLocalPart}}
+        <a class="js-delete-item delete-item" href="#"><span class="icon-trash"></span></a>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>
