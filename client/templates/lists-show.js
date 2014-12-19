@@ -174,7 +174,9 @@ Template.listsShow.events({
       listId: this._id,
       text: $input.val(),
       checked: false,
-      createdAt: new Date()
+      createdAt: new Date(),
+      owner: Meteor.userId(),           // _id of logged in user
+      username: Meteor.user().emails[0].address.substring(0, Meteor.user().emails[0].address.indexOf('@'))  // username of logged in user
     });
     Lists.update(this._id, {$inc: {incompleteCount: 1}});
     $input.val('');
